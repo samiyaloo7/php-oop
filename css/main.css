@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+footer, header {
+    width: 100vw;
+    height: auto;
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid grey;
+    background-color: antiquewhite;
+}
+header {
+    border-bottom: 2px solid grey;
+    background-color: antiquewhite;
+}
+section.table-sec {
+    width: fit-content;
+    margin: 20px auto;
+}
+section.table-sec div.tbl-div {
+    background-color: cadetblue;
+    border: 1px solid grey;
+    box-shadow: 1px 1px 5px #000;
+    padding: 10px;
+}
+section.table-sec div.tbl-div table {
+    text-align: left;
+}
+section.table-sec div.tbl-div table tbody tr td, section.table-sec div.tbl-div table thead tr th {
+    padding: 2px 15px;
+    color: white;
+    text-shadow: 1px 1px 3px #000;
+}
+section.table-sec div.tbl-div table thead tr th {
+    border-bottom: 3px solid white;
+}
