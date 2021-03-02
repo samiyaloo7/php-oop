@@ -43,7 +43,7 @@ header > h1 {
 }
 .label-row, .input-row {
     display: grid;
-    grid-template-columns: 54px 25% 25% 25% 50px;
+    grid-template-columns: 71px 23% 24% 23% 69px; /*54px 25% 25% 25% 50px;*/
     grid-column-gap: 10px;
     align-items: flex-end;
 }
@@ -237,7 +237,7 @@ input.t-name#al2, input.t-name#al3 {
 #frm-r-msg, #frm-g-msg {
     margin: 0 0 10px;
     padding: 12px 20px 12px 25px;
-    display: block;
+    display: none;
     font-size: 1.3rem;
     background: #fae5e5;
     color: #e02b27;
@@ -285,5 +285,9 @@ input.t-name#al2, input.t-name#al3 {
     }
     .Zebra_DatePicker_Icon > svg {
         left : 0;
+    }
+    .frm-container {
+        width: 100%;
+        max-width: none;
     }
 }
