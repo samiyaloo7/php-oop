@@ -1,4 +1,7 @@
 <!Doctype html>
+<?php
+    $obj = new dbconnection('phpoop');
+?>
 <html>
 
 <head>
@@ -10,6 +13,26 @@
 <body>
     <header>
         <h1> PHP OOP. </h1>
+        <div class="frm-div">
+            <form id="addfrm" class="myfrm" method="post">
+                <div class="group-inputs" hidden>
+                    <input type="text" name="id" id="frm_id" placeholder="Enter your name" hidden>
+                </div>
+                <div class="group-inputs">
+                    <input type="text" name="name" id="frm_name" placeholder="Enter your name" Required>
+                </div>
+                <div class="group-inputs">
+                    <input type="email" name="mail" id="frm_mail" placeholder="Enter your mail id" Required>
+                </div>
+                <div class="group-inputs">
+                    <input type="text" name="hobbie" id="frm_hobbie" placeholder="Enter your hobbie" Required>
+                </div>
+                <div class="group-inputs">
+                    <input type="submit" value="Add" name="addbtn" id="abtn" Required>
+                    <input type="reset" value="Clear" name="clearbtn" id="cbtn" Required>
+                </div>
+            </form>
+        </div>
     </header>
 
     <section class="table-sec">
@@ -17,34 +40,24 @@
             <table>
                 <thead>
                     <tr>
-                        <th> id </th>
-                        <th> name </th>
-                        <th> email </th>
-                        <th> pass </th>
+                        <th> Id </th>
+                        <th> Name </th>
+                        <th> Email </th>
+                        <th> Hobbie </th>
+                        <th> Delete </th>
+                        <th> Update </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                        $data = mysqli_query($con, "select * from users");
-                        if($data->num_rows != 0) {
-                            while($d = mysqli_fetch_array($data)) {
-                                echo "<tr><td> ".$d['id']." </td>";
-                                echo "<td> ".$d['name']." </td>";
-                                echo "<td> ".$d['email']." </td>";
-                                echo "<td> ".$d['pass']." </td></tr>";
-                            }
-                        }else {
-                            print('data not found');
-                        }
-                    ?>
+                <tbody id="target_body" >
                 </tbody>
             </table>
         </div>
     </section>
 
     <footer>
-        <p> this is php oop test. </p>
+        <p> this is php OOP test with Ajax. </p>
     </footer>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

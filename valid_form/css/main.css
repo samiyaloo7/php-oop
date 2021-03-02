@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.42857143;
+}
+.main-container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.frm-container {
+    max-width: 600px;
+}
+.frm-inner-sec {
+    margin-bottom: 35px;
+}
+.frm-inner-ttl {
+    color: #333;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c6c6c6;
+}
+header > h1 {
+    margin: 0;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #333;
+    margin-bottom: 40px;
+}
+.label-row, .input-row {
+    display: grid;
+    grid-template-columns: 54px 25% 25% 25% 50px;
+    grid-column-gap: 10px;
+    align-items: flex-end;
+}
+.np-select, .na-select, .slect {
+    appearance: none;
+    background: #ffffff url(../images/select-bg.svg) no-repeat 100% 45%;
+    background-clip: padding-box;
+    border: 1px solid #cccccc;
+    border-radius: 1px;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    height: 32px;
+    line-height: 1.42857143;
+    padding: 4px 25px 5px 10px;
+    vertical-align: baseline;
+    width: calc(100% - 5px);
+    box-sizing: border-box;
+}
+.label-row span {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333333;
+    line-height: 1.42857143;
+    font-size: 14px;
+    display: block;
+}
+
+select:not([disabled]):focus {
+    box-shadow: 0 0 3px 1px #00699d;
+}
+select:focus {
+    border: 1px solid #c2c2c2;
+}
+*:focus {
+    box-shadow: none;
+    outline: 0;
+}
+.name-col  span > i {
+    color: red;
+}
+label.required > span:after, .msg-div >  p:before {
+    content: '*';
+    color: #e02b27;
+    font-size: 12px;
+    margin: 0 0 0 5px;
+}
+input.t-name {
+    background: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #c2c2c2;
+    border-radius: 1px;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    height: 32px;
+    line-height: 1.42857143;
+    padding: 0 9px;
+    vertical-align: baseline;
+    width: calc(100% - 5px);
+    box-sizing: border-box;
+}
+label.label {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.form-field, .name-row {
+    margin-bottom: 20px;
+}
+label.uplabel {
+    margin-bottom: 8px;
+    display: block;
+}
+label.uplabel > span {
+    font-size: 14px;
+    font-weight: 800;
+}
+input[type="checkbox"]  {
+    margin: 0;
+}
+ 
+#dob_p {
+    border: 0 !important;
+    width: calc(100% - 20px) !important;
+    border-radius: 1px !important;
+    padding: 0 9px !important;
+    height: 35px !important;
+    vertical-align: baseline !important;
+    position: relative !important;
+    font-size: 14px !important;
+    line-height: 1.42 !important;
+}
+#dob_p:before {
+    content: '';
+    height: 95%;
+    width: 90%;
+    position: absolute;
+    border: 1px solid #c2c2c2;
+    box-sizing: border-box;
+    left: 0;
+    border-radius: 1px;
+}
+.Zebra_DatePicker_Icon_Wrapper {
+    width: 100% !important;
+}
+.Zebra_DatePicker_Icon > svg {
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    left: -5px;
+    top: -2px;
+}
+input.t-name#al2, input.t-name#al3 {
+    margin-top: 10px;
+}
+.msg-div > p {
+    font-size: 13px;
+    color: #e02b27;
+    margin-bottom: 40px;
+}
+.regbutton {
+    background: #1979c3;
+    border: 1px solid #1979c3;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    padding: 7px 15px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.pass-strength-indicator {
+    background: #f4f4f4;
+    padding:  0 5px;
+    border-radius: 2px;
+    width: calc(100% - 15px);
+    position: relative;
+    z-index: -1;
+}
+.pass-strength-indicator > p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 32px;
+    color: #333333;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    z-index: 1;
+}
+.week:before {
+    content: '';
+    background: rgba( 246, 175, 173, 1);
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.mid:before {
+    content: '';
+    background: rgba( 255, 214, 179, 1);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.strong:before {
+    content: '';
+    background: rgba( 197, 238, 172, 1);
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.vstrong:before {
+    content: '';
+    background: rgba( 129, 181, 98, 1);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+#frm-r-msg, #frm-g-msg {
+    margin: 0 0 10px;
+    padding: 12px 20px 12px 25px;
+    display: block;
+    font-size: 1.3rem;
+    background: #fae5e5;
+    color: #e02b27;
+    padding-left: 45px;
+    position: relative;
+    font-size: 13px;
+    margin: 0;
+    color: #e02b27;
+    margin-bottom: 10px;
+}
+#frm-g-msg {
+    background-color: #e5efe5;
+    color: #006400;
+}
+#frm-r-msg > svg {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 13px;
+    top: 8px;
+}
+#frm-g-msg > img { 
+    height: 24px;
+    position: absolute;
+    left: 11px;
+    top: 9px;
+}
+
+@media screen and (max-width : 768px) {
+    header > h1  {
+        color: #333333;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 300;
+        line-height: 1.1;
+        font-size: 28px;
+        margin: 20px auto;
+    }
+    .name-row {
+        display: none;
+    }
+    .regbutton {
+        margin-bottom: 100px;
+        width: 100%;
+    }
+    .Zebra_DatePicker_Icon > svg {
+        left : 0;
+    }
+}
