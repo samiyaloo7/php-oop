@@ -1,0 +1,266 @@
+[
+    {
+      "value": "",
+      "text": "Please select a region, state or province."
+    },
+    {
+      "value": "1",
+      "text": "Alabama"
+    },
+    {
+      "value": "2",
+      "text": "Alaska"
+    },
+    {
+      "value": "3",
+      "text": "American Samoa"
+    },
+    {
+      "value": "4",
+      "text": "Arizona"
+    },
+    {
+      "value": "5",
+      "text": "Arkansas"
+    },
+    {
+      "value": "6",
+      "text": "Armed Forces Africa"
+    },
+    {
+      "value": "7",
+      "text": "Armed Forces Americas"
+    },
+    {
+      "value": "8",
+      "text": "Armed Forces Canada"
+    },
+    {
+      "value": "9",
+      "text": "Armed Forces Europe"
+    },
+    {
+      "value": "10",
+      "text": "Armed Forces Middle East"
+    },
+    {
+      "value": "11",
+      "text": "Armed Forces Pacific"
+    },
+    {
+      "value": "12",
+      "text": "California"
+    },
+    {
+      "value": "13",
+      "text": "Colorado"
+    },
+    {
+      "value": "14",
+      "text": "Connecticut"
+    },
+    {
+      "value": "15",
+      "text": "Delaware"
+    },
+    {
+      "value": "16",
+      "text": "District of Columbia"
+    },
+    {
+      "value": "17",
+      "text": "Federated States Of Micronesia"
+    },
+    {
+      "value": "18",
+      "text": "Florida"
+    },
+    {
+      "value": "19",
+      "text": "Georgia"
+    },
+    {
+      "value": "20",
+      "text": "Guam"
+    },
+    {
+      "value": "21",
+      "text": "Hawaii"
+    },
+    {
+      "value": "22",
+      "text": "Idaho"
+    },
+    {
+      "value": "23",
+      "text": "Illinois"
+    },
+    {
+      "value": "24",
+      "text": "Indiana"
+    },
+    {
+      "value": "25",
+      "text": "Iowa"
+    },
+    {
+      "value": "26",
+      "text": "Kansas"
+    },
+    {
+      "value": "27",
+      "text": "Kentucky"
+    },
+    {
+      "value": "28",
+      "text": "Louisiana"
+    },
+    {
+      "value": "29",
+      "text": "Maine"
+    },
+    {
+      "value": "30",
+      "text": "Marshall Islands"
+    },
+    {
+      "value": "31",
+      "text": "Maryland"
+    },
+    {
+      "value": "32",
+      "text": "Massachusetts"
+    },
+    {
+      "value": "33",
+      "text": "Michigan"
+    },
+    {
+      "value": "34",
+      "text": "Minnesota"
+    },
+    {
+      "value": "35",
+      "text": "Mississippi"
+    },
+    {
+      "value": "36",
+      "text": "Missouri"
+    },
+    {
+      "value": "37",
+      "text": "Montana"
+    },
+    {
+      "value": "38",
+      "text": "Nebraska"
+    },
+    {
+      "value": "39",
+      "text": "Nevada"
+    },
+    {
+      "value": "40",
+      "text": "New Hampshire"
+    },
+    {
+      "value": "41",
+      "text": "New Jersey"
+    },
+    {
+      "value": "42",
+      "text": "New Mexico"
+    },
+    {
+      "value": "43",
+      "text": "New York"
+    },
+    {
+      "value": "44",
+      "text": "North Carolina"
+    },
+    {
+      "value": "45",
+      "text": "North Dakota"
+    },
+    {
+      "value": "46",
+      "text": "Northern Mariana Islands"
+    },
+    {
+      "value": "47",
+      "text": "Ohio"
+    },
+    {
+      "value": "48",
+      "text": "Oklahoma"
+    },
+    {
+      "value": "49",
+      "text": "Oregon"
+    },
+    {
+      "value": "50",
+      "text": "Palau"
+    },
+    {
+      "value": "51",
+      "text": "Pennsylvania"
+    },
+    {
+      "value": "52",
+      "text": "Puerto Rico"
+    },
+    {
+      "value": "53",
+      "text": "Rhode Island"
+    },
+    {
+      "value": "54",
+      "text": "South Carolina"
+    },
+    {
+      "value": "55",
+      "text": "South Dakota"
+    },
+    {
+      "value": "56",
+      "text": "Tennessee"
+    },
+    {
+      "value": "57",
+      "text": "Texas"
+    },
+    {
+      "value": "58",
+      "text": "Utah"
+    },
+    {
+      "value": "59",
+      "text": "Vermont"
+    },
+    {
+      "value": "60",
+      "text": "Virgin Islands"
+    },
+    {
+      "value": "61",
+      "text": "Virginia"
+    },
+    {
+      "value": "62",
+      "text": "Washington"
+    },
+    {
+      "value": "63",
+      "text": "West Virginia"
+    },
+    {
+      "value": "64",
+      "text": "Wisconsin"
+    },
+    {
+      "value": "65",
+      "text": "Wyoming"
+    }
+]
