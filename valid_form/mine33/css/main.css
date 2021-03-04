@@ -88,7 +88,7 @@ select:focus {
 label.required > span:after, .msg-div >  p:before {
     content: '*';
     color: #e02b27;
-    font-size: 12px;
+    font-size: 15px;
     margin: 0 0 0 5px;
 }
 input.t-name {
@@ -180,7 +180,7 @@ input.t-name#al2, input.t-name#al3 {
 }
 .pass-strength-indicator {
     background: #f4f4f4;
-    padding:  0 5px;
+    padding:  0 9px;
     border-radius: 2px;
     width: calc(100% - 5px);
     position: relative;
