@@ -1,0 +1,122 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title> Minimum Order Ammount </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <main class="container">
+            <button class="sv-btn" id="sv_btn"> Save Config</button>
+            <div class="msg-div">
+                <div class="pmsg-div">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="svg-inline--fa fa-check fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                    <p> You saved the configuration. </p>
+                </div>
+            </div>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <a>Configuration</a>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <form class="frm-moa" id="frm_moa" method="post" action="">
+                                <div class="form-table">
+                                    <div class="from-field row">
+                                        <div class="lbl-div col-md-4">
+                                            <label>
+                                                <span data-con-scope="[store view]"> Minimum Order Amount For Customer Group </span>
+                                            </label>
+                                        </div>
+                                        <div class="input-div col-md-6">
+                                            <select class="state-sel" id="sel_state" name="state">
+                                                <option value="1" selected="selected"> Enable </option>
+                                                <option value="0"> Desable </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="from-field ff2 row">
+                                        <div class="lbl-div col-md-4">
+                                            <label>
+                                                <span data-con-scope="[website]"> Minimum Order Amount Allowed </span>
+                                            </label>
+                                        </div>
+                                        <div class="input-div col-md-6">
+                                            <table class="amount-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Customer Group</th>
+                                                        <th>Minimum Amount</th>
+                                                        <!-- colspan="1" -->
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- <tr>
+                                                        <td>
+                                                            <select class="cg-select" id="" name="">
+                                                                <option value="0" selected="selected"> NOT LOGGED IN </option>
+                                                                <option value="1"> General </option>
+                                                                <option value="2"> Wholesale </option>
+                                                                <option value="3"> Retailer </option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="" name="" id="" >
+                                                        </td>
+                                                        <td>
+                                                            <button  type="button" id="" class="del-btn"> 
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" class="svg-inline--fa fa-trash fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"/></svg> 
+                                                            </button>
+                                                        </td>
+                                                    </tr> -->
+                                                    
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr colspan="2">
+                                                        <td>
+                                                            <button type="button" id="add_btn" class="add-btn">Add</button>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="from-field ff3 row">
+                                        <div class="lbl-div col-md-4">
+                                            <label>
+                                                <span data-con-scope="[STORE VIEW]"> Alert Message </span>
+                                            </label>
+                                        </div>
+                                        <div class="input-div col-md-6">
+                                            <input type="text" class="" id="txtmsg" >
+                                            <p>
+                                                <span>
+                                                    Make use of "-conf-" to add configuration value.For ex: The minimum amount you have to order is -conf-. Maximum 100 characters allowed for the message.
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jq.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

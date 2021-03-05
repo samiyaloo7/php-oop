@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.page-container {
+    max-width: 714px;
+    /* min-width: 1020px; */
+    margin: 0 auto;
+}
+.container {
+    position: relative;
+    padding-top: 70px;
+}
+.accordion {
+    border: 0;
+}
+.accordion-button, .accordion-button:not(.collapsed) {
+    border: none;
+    color: #303030;
+    background-color: #fff;
+    padding: 19px 10px 28px 19px;
+}
+.accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+.accordion-button:hover {
+    color: #0a0a0a;
+}
+.accordion-collapse {
+    border: none;
+}
+.accordion-button > a {
+    cursor: pointer;
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: .025em;
+    padding: none;
+    text-decoration: none;
+}
+.accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-circle-up' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-chevron-circle-up fa-w-16'%3E%3Cpath fill='currentColor' d='M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zM40 256c0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216-118.7 0-216-96.1-216-216zm224.5-86.6l115 115.1c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0L256 209l-99.5 99.5c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l115-115.1c4.8-4.6 12.4-4.6 17.1.1z' class=''%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform 0.2s ease-in-out;
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-circle-up' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-chevron-circle-up fa-w-16'%3E%3Cpath fill='currentColor' d='M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zM40 256c0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216-118.7 0-216-96.1-216-216zm224.5-86.6l115 115.1c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0L256 209l-99.5 99.5c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l115-115.1c4.8-4.6 12.4-4.6 17.1.1z' class=''%3E%3C/path%3E%3C/svg%3E");
+    transform: rotate(180deg);
+}
+span[data-con-scope] {position: relative;}
+span[data-con-scope]:before {
+    bottom: -15px;
+    color: #808080;
+    content: attr(data-con-scope);
+    font-size: 11px;
+    font-weight: 400;
+    min-width: 15rem;
+    position: absolute;
+    right: 0;
+    text-transform: lowercase;
+}
+.lbl-div , .input-div {
+    text-align: right;
+    line-height: normal;
+    font-size: 14px;
+    padding: 25px 15px 0 0;
+}
+.lbl-div > label {
+    line-height: 1.36;
+    font-weight: 600;
+}
+select {
+
+    box-sizing: border-box;
+    border: 1px solid #adadad;
+    border-radius: 1px;
+    padding: 4px;
+    color: #303030;
+    background-color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    height: 33px;
+
+    width: 100%;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-image: url(../svgs/select_arrow.svg),linear-gradient(#e3e3e3, #e3e3e3),linear-gradient(#adadad, #adadad);
+    background-position: calc(100% - 12px) -34px,100%,calc(100% - 2.1rem) 0;
+    background-size: auto,2.1rem 100%,1px 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    min-width: 8.5rem;
+    padding: 4px 44px 4px 4px;
+    transition: border-color .1s linear;
+
+}
+select:focus {
+    border-color: #007bdb;
+    box-shadow: none;
+    outline: 0;
+    background-image: url(../svgs/select_arrow.svg),linear-gradient(#e3e3e3, #e3e3e3),linear-gradient(#007bdb, #007bdb);
+    background-position: calc(100% - 12px) 13px,100.5%,calc(100% - 33px) 0;
+}
+input[type="text"]:focus {
+    border-color: #007bdb;
+    box-shadow: none;
+    outline: 0;
+}
+.amount-table {
+    margin: 0 0 .5rem;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #efefef;
+    color: #303030;
+    display: table;
+    box-sizing: border-box;
+}
+.amount-table > thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.amount-table > thead > tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: none;
+}
+.amount-table > thead > tr > th:first-child {
+    padding-left: 1rem;
+    box-sizing: border-box;
+    max-width: 120px;
+}
+.amount-table > thead > tr > th {
+    color: #303030;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: bottom;
+}
+.amount-table > thead > tr > th, .amount-table > thead > tr > td     {
+    background-color: #efefef;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    padding: 1.3rem 1rem 1.3rem 0;
+    text-align: left;
+    max-width: 125px;
+}
+.cg-select {
+    width: 90%;
+    min-width: 80px;
+    padding-right: 44px;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 14px;
+}
+td {
+    padding: 13px 25px 13px 0px;
+    max-width: 125px;
+    text-align: left;
+    position: relative;
+}
+td:first-child {
+    padding: 13px 25px 13px 15px;
+    max-width: 120px;
+    min-width: 80px;
+    display: block;
+}
+td > input {
+    box-sizing: border-box;
+    border: 1px solid #adadad;
+    border-radius: 1px;
+    padding: 4px;
+    color: #303030;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    height: 33px;
+    width: 100px;
+}
+td > button.del-btn {
+    border: none;
+    border: 0;
+    position: absolute;
+    top: 15px;
+}
+td > button.del-btn > svg {
+    color: #514943;
+    width: 17px;
+}
+tr, tfoot{
+    border-top: 1px solid white;
+}
+button.add-btn {
+    padding: 6px 14px;
+    color: #514941;
+    background-color: #e3e3e3;
+    border: 1px solid #adadad;
+}
+button.add-btn:hover {
+    background-color: #dbdbdb;
+    color:#514943;
+}
+button.sv-btn {
+    color: #fff;
+    text-shadow: 1px 1px 0 rgb(0 0 0 / 25%);
+    background-color: #eb5202;
+    padding: 11px 16px;
+    border: none;
+    /* float: right; */
+    position: absolute;
+    top: 0;
+    right: 12px;
+}
+.input-div > input[type="text"] {
+    width: 100%;
+    border: 1px solid #adadad;
+    height: 33px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.input-div > p {
+    text-align: justify;
+}
+.input-div > p > span {
+    /* text-align: justify; */
+    font-size: 12px;
+}
+.msg-div > .pmsg-div {
+    background: #fffbbb;
+    border: none;
+    border-radius: 0;
+    color: #333;
+    font-size: 14px;
+    margin: 0 0 1px;
+    padding: 18px 40px 18px 55px;
+    position: relative;
+    text-shadow: none;
+    display: none;
+    align-items: center;
+    margin-top: 20px;
+}
+.msg-div > .pmsg-div > p {
+    margin: 0;
+    width: max-content;
+    margin-left: 15px;
+}
+.msg-div > .pmsg-div > svg{
+    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' class='svg-inline--fa fa-check fa-w-16' role='img' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3E%3C/svg%3E"); */
+    /* position: absolute; */
+    /* background-repeat: no-repeat;
+    background-size: 1.25rem; */
+    /* margin-top: 10px;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px; */
+    height: 21px;
+    color: #79a22e;
+    margin-left: -30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .lbl-div, .input-div {
+        text-align: left;
+    }
+    span[data-con-scope]:before {
+        right: auto;
+    }
+    .accordion-button, .accordion-button:not(.collapsed) {
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+}
