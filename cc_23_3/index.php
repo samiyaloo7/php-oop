@@ -18,6 +18,7 @@
         }
         public function get_cc() {
             if($this->mysqli->query("select * from ".$this->tbl)) {
+                // echo "select * from ".$this->tbl;
                 $this->hdata = $this->mysqli->query("select * from ".$this->tbl);
                 if($this->hdata->num_rows == 0) {
                     echo "<script> alert('table is empty'); </script>";
@@ -29,10 +30,8 @@
                 echo "<script> alert('table not created'); </script>";
             } 
         }
-
         public function insert_cc($rname, $status, $website, $coupon, $fromd, $tod, $priority) {
-            echo 'insert into '.$this->tbl.'(`r_name`, `status`, `websites`, `coupon`, `startd`, `endd`, `priority`) values("'.$rname.'",'.$status.',"'.$website.'","'.$coupon.'","'.$fromd.'","'.$tod.'","'.$priority.'")';
-            if ($this->mysqli->query('insert into ".$this->tbl."(`r_name`, `status`, `websites`, `coupon`, `startd`, `endd`, `priority`) values("'.$rname.'",'.$status.',"'.$website.'","'.$coupon.'","'.$fromd.'","'.$tod.'","'.$priority.'")')) {
+            if($this->mysqli->query("insert into ".$this->tbl."(`r_name`, `status`, `websites`, `coupon`, `startd`, `endd`, `priority`) values('".$rname."', '".$status."', '".$website."', '".$coupon."', '".$fromd."','".$tod."','".$priority."')")) {
                 echo "<script> alert('record inserted'); </script>";
             }else {
                 echo "<script> alert('record not insertd'); </script>";
@@ -63,7 +62,6 @@
                 echo "record for $id not found";
             }
         }
-
     }
 
 
@@ -71,8 +69,6 @@
 
     if(isset($_POST['add'])) {
         if($_POST['add'] == "true") {
-            // $data = $db->get_cc(); 
-            // echo $_POST['rname'];
             $rname = $_POST['rname'];
             $status = $_POST['rstatus'] == true ? 1 : 0;
             $website = serialize($_POST['rweb']);
@@ -82,48 +78,98 @@
             $priority = $_POST['priority'];
 
             $db->insert_cc($rname, $status, $website, $coupon, $fromd, $tod, $priority); 
-
         }
         exit;
     }
 
     if(isset($_POST['show'])) {
-        // if($_POST['show'] == )
+        if($_POST['show'] == true){
+            $data = $db->get_cc(); 
+            $arr = array();
+            if($data->num_rows != 0) {
+                while($d = mysqli_fetch_assoc($data)) {
+                    $arow = array();
+
+                    $arow[] = $d['id'];
+                    $arow[] = $d['r_name'];
+                    $arow[] = $d['status'];
+                    $arow[] = $d['websites'];
+                    $arow[] = $d['coupon'];
+                    $arow[] = $d['startd'];
+                    $arow[] = $d['endd'];
+                    $arow[] = $d['priority'];
+
+                    $arr[] = $arow;
+                }
+                echo json_encode($arr);
+            }else {
+                echo "no data not found";
+            }
+        }
+        exit;
     }
 
-    // if(isset($_POST['add_rule'])) {
-        // if($_POST['add_rule'] == true) {
-        //     // $data = $db->get_cc();    
-        //     echo "add rule call";
-        // }else {
-        //     echo "add rule not call";
-        // }
+    if(isset($_POST['search'])) {
+        if($_POST['search'] == true){
+            $data = $db->get_cc_from_id($_POST['id']); 
+            $arr = array();
+            if($data->num_rows != 0) {
+                while($d = mysqli_fetch_assoc($data)) {
+                    $arow = array();
 
-        // $data = $db->get_cc();
-        // $arr = array();
-        // if($data->num_rows != 0) {
-        //     while($d = mysqli_fetch_assoc($data)) {
-        //         $arow = array();
+                    $arow[] = $d['id'];
+                    $arow[] = $d['r_name'];
+                    $arow[] = $d['status'];
+                    $arow[] = $d['websites'];
+                    $arow[] = $d['coupon'];
+                    $arow[] = $d['startd'];
+                    $arow[] = $d['endd'];
+                    $arow[] = $d['priority'];
 
-        //         $arow[] = $d['id'];
-        //         $arow[] = $d['r_name'];
-        //         $arow[] = $d['status'];
-        //         $arow[] = $d['websites'];
-        //         $arow[] = $d['coupon'];
-        //         $arow[] = $d['startd'];
-        //         $arow[] = $d['endd'];
-        //         $arow[] = $d['priority'];
+                    $arr[] = $arow;
+                }
+                echo json_encode($arr);
+            }else {
+                echo "no data not found";
+            }
+        }
+        exit;
+    }
 
-        //         $arr[] = $arow;
-        //     }
-        //     echo json_encode($arr);
-        // }else {
-        //     echo "no data not found";
-        // }
-    //     exit;
-    // }else {
-    //     echo "out of the rule";
-    // }
+    if(isset($_POST['delete'])) {
+        if($_POST['delete'] == true){
+            $data = $db->delete_cc($_POST['id']); 
+            echo $data;
+        }
+        exit;
+    }
+
+    if(isset($_POST['update'])) {
+        if($_POST['update'] == true){
+            $data = $db->get_cc_from_id($_POST['id']); 
+            $arr = array();
+            if($data->num_rows != 0) {
+                while($d = mysqli_fetch_assoc($data)) {
+                    $arow = array();
+
+                    $arow[] = $d['id'];
+                    $arow[] = $d['r_name'];
+                    $arow[] = $d['status'];
+                    $arow[] = $d['websites'];
+                    $arow[] = $d['coupon'];
+                    $arow[] = $d['startd'];
+                    $arow[] = $d['endd'];
+                    $arow[] = $d['priority'];
+
+                    $arr[] = $arow;
+                }
+                echo json_encode($arr);
+            }else {
+                echo "no data not found";
+            }
+        }
+        exit;
+    }
 
 ?>
 
@@ -445,18 +491,18 @@
         <div class="top-row">
             <div class="left-top-panel">
                 <button id="search_button" class="brown-button"> <span> Search </span> </button>
+                <input type="text" id="search_box" >
             </div>
             <div class="right-top-panel">
                 <div class="per-page-div">
                 </div>
                 <div class="page-number-div">
-                    <button id="ppbtn">
-                        < </button>
-                            <div class="pn-input">
-                                <input type="text" id="pn_input" value="1">
-                                <span> of <span id="pcount">10</span></span>
-                            </div>
-                            <button id="npbtn"> > </button>
+                    <button id="ppbtn"> < </button>
+                    <div class="pn-input">
+                        <input type="text" id="pn_input" value="1">
+                        <span> of <span id="pcount">10</span></span>
+                    </div>
+                    <button id="npbtn"> > </button>
                 </div>
             </div>
         </div>
@@ -472,19 +518,10 @@
                         <th scope="col"> Status </th>
                         <th scope="col"> Web Site </th>
                         <th scope="col"> Priority </th>
+                        <th scope="col"> Edit </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                        <td scope="row"> 1 </td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -525,18 +562,12 @@
                 </div>
                 <div class="i-box">
                     <label class="required"> Websites </label>
-                    <!-- <textarea name="rulewebsite" id="r_website"> </textarea> -->
                     <select multiple id="r_webiste" >
                         <option value="SEVA7"> Main </option>
                     </select>
                 </div>
                 <div class="i-box">
                     <label class="required"> Coupon </label>
-                    <!-- <select id="ccode" >
-                        <option value="No Coupon" selected> No Coupon </option>
-                        <option value="SEVA7"> SEVA7 </option>
-                        <option value="FREE"> FREE </option>
-                    </select> -->
                     <input type="text" id="ccode" >
                 </div>
                 <div class="i-box">
@@ -559,7 +590,118 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-    $(function() {
+    function delMe(e) {
+        $.ajax({
+            url: 'index.php',
+            data: {delete: true, id: e},
+            type: 'post',
+            success: function(res) {
+                $.ajax({
+                    url: 'index.php',
+                    data: {show: true},
+                    type: 'post',
+                    success: function(res) {
+                        adata = JSON.parse(res);
+                        $('tbody').html('');
+                        for(var i = 0; i < adata.length; i++) {
+                            $('tbody').append("<tr>"+
+                                "<td scope='row'> "+adata[i][0]+" </td>"+
+                                "<td scope='row'> "+adata[i][1]+" </td>"+
+                                "<td scope='row'> "+adata[i][2]+" </td>"+
+                                "<td scope='row'> "+adata[i][3]+" </td>"+
+                                "<td scope='row'> "+adata[i][4]+" </td>"+
+                                "<td scope='row'> "+adata[i][5]+" </td>"+
+                                "<td scope='row'> "+adata[i][6]+" </td>"+
+                                "<td scope='row'> "+adata[i][7]+" </td>"+
+                                "<td scope='row'> <button onclick='delMe("+adata[i][0]+");' >Delete</button> <button onclick='upMe("+adata[i][0]+");' >Edit</button> </td>"+
+                                "</tr>");
+                        }
+                    }
+                });
+            }
+        });
+    }
+    function upMe(e) {
+        $.ajax({
+            url: 'index.php',
+            data: {update: true, id: e},
+            type: 'post',
+            success: function(res) {
+                // console.log(res);
+                adata = JSON.parse(res);
+                for(var i = 0; i < adata.length; i++) {
+                    $('#r_name').val(adata[i][1]);
+                    // $('#r_status:checked').length > 0;
+                    $('#r_webiste').val(adata[i][3]);
+                    $('#ccode').val(adata[i][4]);
+                    $('#fromdate').val(adata[i][5]);
+                    $('#todate').val(adata[i][6]);
+                    $('#r_priority').val(adata[i][7]);
+                    $('#tbl_box').hide();
+                    $('#frm_box').show();
+                }
+            }
+        });
+    }
+    $(function() {   
+        function loadData() {
+            $.ajax({
+                url: 'index.php',
+                data: {show: true},
+                type: 'post',
+                success: function(res) {
+                    adata = JSON.parse(res);
+                    $('tbody').html('');
+                    for(var i = 0; i < adata.length; i++) {
+                        $('tbody').append("<tr>"+
+                            "<td scope='row'> "+adata[i][0]+" </td>"+
+                            "<td scope='row'> "+adata[i][1]+" </td>"+
+                            "<td scope='row'> "+adata[i][2]+" </td>"+
+                            "<td scope='row'> "+adata[i][3]+" </td>"+
+                            "<td scope='row'> "+adata[i][4]+" </td>"+
+                            "<td scope='row'> "+adata[i][5]+" </td>"+
+                            "<td scope='row'> "+adata[i][6]+" </td>"+
+                            "<td scope='row'> "+adata[i][7]+" </td>"+
+                            "<td scope='row'> <button onclick='delMe("+adata[i][0]+");' >Delete</button>  <button onclick='upMe("+adata[i][0]+");' >Edit</button> </td>"+
+                            "</tr>");
+                    }
+                }
+            });
+        }
+        $('#search_button').click(function() {
+            var i = $('#search_box').val();
+            if(i != '') {
+                $.ajax({
+                    url: 'index.php',
+                    data: {search: true, id: i},
+                    type: 'post',
+                    success: function(res) {
+                        if(res.includes("record")) {
+                            $('tbody').html('');
+                        }else {
+                            adata = JSON.parse(res);
+                            $('tbody').html('');
+                            for(var i = 0; i < adata.length; i++) {
+                                $('tbody').append("<tr>"+
+                                    "<td scope='row'> "+adata[i][0]+" </td>"+
+                                    "<td scope='row'> "+adata[i][1]+" </td>"+
+                                    "<td scope='row'> "+adata[i][2]+" </td>"+
+                                    "<td scope='row'> "+adata[i][3]+" </td>"+
+                                    "<td scope='row'> "+adata[i][4]+" </td>"+
+                                    "<td scope='row'> "+adata[i][5]+" </td>"+
+                                    "<td scope='row'> "+adata[i][6]+" </td>"+
+                                    "<td scope='row'> "+adata[i][7]+" </td>"+
+                                    "<td scope='row'> <button onlick='delMe("+adata[i][0]+")' >Delete</button> </td>"+
+                                    "</tr>");
+                            }
+                        }
+                    }
+                });
+            }else {
+                loadData();
+            }
+        });
+        loadData();
         $('#add_new_button').click(function() {
             $('#tbl_box').hide();
             $('#frm_box').show();
@@ -567,6 +709,15 @@
         $('#back_btn').click(function() {
             $('#tbl_box').show();
             $('#frm_box').hide();
+
+            $('#r_name').val('');
+            $('#r_webiste').val('');
+            $('#ccode').val('');
+            $('#fromdate').val('');
+            $('#todate').val();
+            $('#r_priority').val('');
+            
+            loadData();
         });
         $('#save_button').click(function () {
             var rn = $('#r_name').val();
@@ -590,14 +741,6 @@
 
             console.log(datatopass);
 
-            // $.post('/',$('#rule_frm').serialize(), function () {
-            //     console.log();
-            // }); 
-
-            // $.post('/index.php', {test: "samiyal"}, function () {
-            //     console.log("kjhk");
-            // }); 
-
             $.ajax({
                 url: 'index.php',
                 data: datatopass,
@@ -606,7 +749,6 @@
                     console.log(res);
                 }
             });
-
 
         });
          
